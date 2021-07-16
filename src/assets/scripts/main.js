@@ -4,17 +4,15 @@
 function formValidator() { 
 
   let checkForm = function (form) {
-    
-    console.log(form);
-
-    /* Hier bitte die Validierung einfügen 
-    
-    …
-    …
-    …
-
-    */
-    
+    for(let i = 0; i < form.elements.length - 2; i++){
+      if(form.elements[i].classList.contains("ut-has-error")){
+        form.elements[i].classList.remove("ut-has-error");
+      }
+      if(form.elements[i].value == ""){
+        form.elements[i].classList.add("ut-has-error");
+        form.elements[i].previousElementSibling.classList.add("ut-show-error");
+      }
+    }
   }
 
   this.scan = function () { 
@@ -22,13 +20,11 @@ function formValidator() {
       form.addEventListener('submit', function (event) {
         event.preventDefault();
         checkForm(form);
+
       });
     });
   }
 }
-
-
-
 
 
 function viewSwitcher() {
