@@ -1,4 +1,4 @@
-
+a
 /* Card Image with Caption
 ############################################################################ */
 
@@ -129,9 +129,7 @@
       }
     }
   }
-
 }
-
 
 /* Image with Caption
 ############################################################################ */
@@ -198,6 +196,43 @@
     }
 
     dt[data-target] + dd.is-open{
+    }
+  }
+}
+
+/* Form
+########################################################################## */
+form {
+  .field-with-label {
+    display:grid;
+    margin-bottom: $xs;
+
+    input,
+    textarea{
+      background-color : $dark;
+      color: $lighter;
+      width: 1fr;
+      height: $xxl;
+    }
+
+    input[type="date"]{
+      width: 15%;
+    }
+
+    label {
+      padding-top: $s;
+      padding-bottom: $m;
+    }
+
+    textarea{
+      height: 10rem;
+    }
+  }
+
+  .footer-field {
+    input{
+      background-color: $accent;
+      padding: $xs;
     }
   }
 }
