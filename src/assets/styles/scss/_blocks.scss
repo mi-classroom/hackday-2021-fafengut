@@ -1,238 +1,224 @@
-a
 /* Card Image with Caption
 ############################################################################ */
-
 .card-image-with-caption {
-  
-  border-radius: $border-radius;
-  overflow: hidden;
-  background-color: #000;
-  position: relative;
-  
-  >img {
-    width: 100%;
-  }
+    position: relative;
+    overflow: hidden;
+    background-color: #000;
+    border-radius: $border-radius;
 
-  >figcaption {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    padding: $m;
-    padding-top: $xl;
-    padding-bottom: $xs;
-
-    >.additional-info {
-      display: none;
+    >img {
+        width: 100%;
     }
-  }
-
-  .is-list-view & {
-
-    display: grid;
-    grid-template-columns: 300px 1fr;
 
     >figcaption {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        padding: $m;
+        padding-top: $xl;
+        padding-bottom: $xs;
 
-      >.additional-info {
-        display: block;
-
-        >dt,
-        dd,
-        >dd p {
-          display: inline;
-          color: $light;
+        >.additional-info {
+            display: none;
         }
-
-        >dt {
-          color: $lighter;
-        }
-
-        >dd:after {
-          content: "";
-          display: block;
-          height: 0;
-        }
-
-      }
     }
-  }
 
+    .is-list-view & {
+        display: grid;
+        grid-template-columns: 300px 1fr;
+
+        >figcaption {
+            >.additional-info {
+                display: block;
+
+                >dt,
+                dd,
+                >dd p {
+                    display: inline;
+                    color: $light;
+                }
+
+                >dt {
+                    color: $lighter;
+                }
+
+                >dd::after {
+                    display: block;
+                    height: 0;
+                    content: "";
+                }
+            }
+        }
+    }
 }
 
 .card-image-with-caption-v2 {
-  
-  overflow: hidden;
-  background-color: #000;
-  position: relative;
-  
-  >img {
-    width: 100%;
-    aspect-ratio: 1/1;
-    object-fit: cover;
-  }
+    position: relative;
+    overflow: hidden;
+    background-color: #000;
 
-  >figcaption {
-    padding: $xl;
-    padding-top: $xxl;
-    padding-bottom: $xxl;
-    border-top: solid $border-width-s $light;
-
-    >.additional-info {
-      display: none;
+    >img {
+        width: 100%;
+        aspect-ratio: 1/1;
+        object-fit: cover;
     }
-
-    p {
-      font-size: $xxl;
-    }
-
-    @media only screen and (min-width: $vp-xlarge) {
-      p{
-        font-size: $l;
-      }
-    }
-
-    @media only screen and (min-width: $vp-large) {
-      p{
-        font-size: $xl;
-      }
-    }
-  }
-
-  .is-list-view & {
-
-    display: grid;
-    grid-template-columns: 300px 1fr;
 
     >figcaption {
+        padding: $xl;
+        padding-top: $xxl;
+        padding-bottom: $xxl;
+        border-top: solid $border-width-s $light;
 
-      >.additional-info {
-        display: block;
-
-        >dt,
-        dd,
-        >dd p {
-          display: inline;
-          color: $light;
+        >.additional-info {
+            display: none;
         }
 
-        >dt {
-          color: $lighter;
+        p {
+            font-size: $xxl;
         }
 
-        >dd:after {
-          content: "";
-          display: block;
-          height: 0;
+        @media only screen and (min-width: $vp-xlarge) {
+            p {
+                font-size: $l;
+            }
         }
 
-      }
+        @media only screen and (min-width: $vp-large) {
+            p {
+                font-size: $xl;
+            }
+        }
     }
-  }
+
+    .is-list-view & {
+        display: grid;
+        grid-template-columns: 300px 1fr;
+
+        >figcaption {
+            >.additional-info {
+                display: block;
+
+                >dt,
+                dd,
+                >dd p {
+                    display: inline;
+                    color: $light;
+                }
+
+                >dt {
+                    color: $lighter;
+                }
+
+                >dd::after {
+                    display: block;
+                    height: 0;
+                    content: "";
+                }
+            }
+        }
+    }
 }
 
 /* Image with Caption
 ############################################################################ */
 
 .image-with-caption {
+    >img {
+        width: 100%;
+    }
 
-  >img {
-    width: 100%;
-  }
-
-  >figcaption {}
+    >figcaption {}
 }
 
 /* Image Description
 ############################################################################ */
 
-.image-description{
-  padding: 0;
-  margin: 0;
+.image-description {
+    padding: 0;
+    margin: 0;
 
+    dl.rootdata {
+        margin-bottom: $xl;
 
-  dl.rootdata{
+        dt {
+            position: relative;
+            display: block;
+            min-width: $s;
+            padding-top: $s;
+            color: $lighter;
 
-    margin-bottom: $xl;
+            &::after {
+                display: inline-block;
+                padding-right: $xs;
+                content: "";
+            }
 
-    dt{
-      display: block;
-      position: relative;
-      min-width: $s;
-      padding-top: $s;
-      color: $lighter;
-
-      &::after{
-          content: "";
-          display: inline-block;
-          padding-right: $xs;
-      }
-
-      button.btn.is-right{
-        top: $s;
-      }
-    }
-
-    dd{
-      border-bottom: solid 1px $dark;
-      padding-bottom: $s;
-      margin-left: 0;
-    }
-
-    dt[data-target]{
-      margin-bottom: $s;
-
-      &.is-open{
-        .btn{
-          transform: rotate(180deg);
+            button.btn.is-right {
+                top: $s;
+            }
         }
-      }
-    }
 
-    dt[data-target] + dd{
-      overflow: hidden;
-      max-height: 1000px;
-      padding-bottom: 0;
-    }
+        dd {
+            padding-bottom: $s;
+            border-bottom: solid 1px $dark;
+            margin-left: 0;
+        }
 
-    dt[data-target] + dd.is-open{
+        dt[data-target] {
+            margin-bottom: $s;
+
+            &.is-open {
+                .btn {
+                    transform: rotate(180deg);
+                }
+            }
+        }
+
+        dt[data-target] + dd {
+            overflow: hidden;
+            max-height: 1000px;
+            padding-bottom: 0;
+        }
+
+        dt[data-target] + dd.is-open{
+        }
     }
-  }
 }
 
 /* Form
 ########################################################################## */
 form {
-  .field-with-label {
-    display:grid;
-    margin-bottom: $xs;
+    .field-with-label {
+        display: grid;
+        margin-bottom: $xs;
 
-    input,
-    textarea{
-      background-color : $dark;
-      color: $lighter;
-      width: 1fr;
-      height: $xxl;
+        input,
+        textarea {
+            width: 1fr;
+            height: $xxl;
+            background-color: $dark;
+            color: $lighter;
+        }
+
+        input[type="date"] {
+            width: 15%;
+        }
+
+        label {
+            padding-top: $s;
+            padding-bottom: $m;
+        }
+
+        textarea {
+            height: 10rem;
+        }
     }
 
-    input[type="date"]{
-      width: 15%;
+    .footer-field {
+        input {
+            padding: $xs;
+            background-color: $accent;
+        }
     }
-
-    label {
-      padding-top: $s;
-      padding-bottom: $m;
-    }
-
-    textarea{
-      height: 10rem;
-    }
-  }
-
-  .footer-field {
-    input{
-      background-color: $accent;
-      padding: $xs;
-    }
-  }
 }

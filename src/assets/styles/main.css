@@ -355,15 +355,17 @@ textarea {
 -----------------------------------------------------------------------------*/
 html,
 body {
-  background-color: #333333;
   padding: 1rem;
-  font-family: "Roboto-light";
-  color: #B4B4B4; }
+  background-color: #333333;
+  color: #B4B4B4;
+  font-family: "Roboto-light"; }
 
 html {
   box-sizing: border-box; }
 
-*, *:before, *:after {
+*,
+*::before,
+*::after {
   box-sizing: inherit; }
 
 main {
@@ -373,19 +375,31 @@ a {
   color: #FFCC00;
   text-decoration: none; }
 
-h1, h2, h3, p, code, pre {
+h1,
+h2,
+h3,
+p,
+code,
+pre {
   margin-bottom: 1.28rem; }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   font-weight: 100; }
 
-p, table, figcaption, dt, dl, dd {
-  line-height: 120%;
-  font-size: 1rem; }
+p,
+table,
+figcaption,
+dt,
+dl,
+dd {
+  font-size: 1rem;
+  line-height: 120%; }
 
 h1 {
   font-size: 2rem;
-  transition: .5s; }
+  transition: 0.5s; }
 
 h2 {
   font-size: 1.6rem; }
@@ -394,22 +408,22 @@ h3 {
   font-size: 1.28rem; }
 
 .herotext {
-  font-size: 1.6rem;
-  padding-bottom: 1.28rem; }
+  padding-bottom: 1.28rem;
+  font-size: 1.6rem; }
 
 .ut-bg-gradient > p {
   position: relative;
   z-index: 200; }
 
 .ut-bg-gradient::before {
-  content: "";
   position: absolute;
+  z-index: 0;
   top: 0;
-  left: 0;
   right: 0;
   bottom: 0;
+  left: 0;
   background-image: linear-gradient(to top, black, rgba(0, 0, 0, 0));
-  z-index: 0; }
+  content: ""; }
 
 .ut-box-shadow {
   box-shadow: 0 0 1rem rgba(0, 0, 0, 0.5); }
@@ -435,6 +449,16 @@ h3 {
   grid-template-columns: 1fr;
   grid-column-gap: 1.28rem;
   grid-row-gap: 1.28rem; }
+
+@media only screen and (min-width: 1024px) {
+  .grid-container {
+    grid-template-columns: 1fr 1fr; }
+  .grid-container-zweispalter {
+    grid-template-columns: 1fr 1fr; } }
+
+@media only screen and (min-width: 1400px) {
+  .grid-container {
+    grid-template-columns: 1fr 1fr 1fr 1fr; } }
 
 button.btn {
   padding: 0;
@@ -462,16 +486,16 @@ button.btn {
 /* Card Image with Caption
 ############################################################################ */
 .card-image-with-caption {
-  border-radius: 0.8rem;
+  position: relative;
   overflow: hidden;
   background-color: #000;
-  position: relative; }
+  border-radius: 0.8rem; }
   .card-image-with-caption > img {
     width: 100%; }
   .card-image-with-caption > figcaption {
     position: absolute;
-    bottom: 0;
     right: 0;
+    bottom: 0;
     left: 0;
     padding: 1.28rem;
     padding-top: 2rem;
@@ -490,26 +514,34 @@ button.btn {
         color: #B4B4B4; }
       .is-list-view .card-image-with-caption > figcaption > .additional-info > dt {
         color: #FFFFFF; }
-      .is-list-view .card-image-with-caption > figcaption > .additional-info > dd:after {
-        content: "";
+      .is-list-view .card-image-with-caption > figcaption > .additional-info > dd::after {
         display: block;
-        height: 0; }
+        height: 0;
+        content: ""; }
 
 .card-image-with-caption-v2 {
+  position: relative;
   overflow: hidden;
-  background-color: #000;
-  position: relative; }
+  background-color: #000; }
   .card-image-with-caption-v2 > img {
     width: 100%;
     aspect-ratio: 1/1;
     object-fit: cover; }
   .card-image-with-caption-v2 > figcaption {
-    padding: 1.28rem;
-    padding-top: 2rem;
-    padding-bottom: 0.8rem;
+    padding: 2rem;
+    padding-top: 2.52rem;
+    padding-bottom: 2.52rem;
     border-top: solid 1px #B4B4B4; }
     .card-image-with-caption-v2 > figcaption > .additional-info {
       display: none; }
+    .card-image-with-caption-v2 > figcaption p {
+      font-size: 2.52rem; }
+    @media only screen and (min-width: 1400px) {
+      .card-image-with-caption-v2 > figcaption p {
+        font-size: 1.6rem; } }
+    @media only screen and (min-width: 1024px) {
+      .card-image-with-caption-v2 > figcaption p {
+        font-size: 2rem; } }
   .is-list-view .card-image-with-caption-v2 {
     display: grid;
     grid-template-columns: 300px 1fr; }
@@ -522,10 +554,10 @@ button.btn {
         color: #B4B4B4; }
       .is-list-view .card-image-with-caption-v2 > figcaption > .additional-info > dt {
         color: #FFFFFF; }
-      .is-list-view .card-image-with-caption-v2 > figcaption > .additional-info > dd:after {
-        content: "";
+      .is-list-view .card-image-with-caption-v2 > figcaption > .additional-info > dd::after {
         display: block;
-        height: 0; }
+        height: 0;
+        content: ""; }
 
 /* Image with Caption
 ############################################################################ */
@@ -540,20 +572,20 @@ button.btn {
   .image-description dl.rootdata {
     margin-bottom: 2rem; }
     .image-description dl.rootdata dt {
-      display: block;
       position: relative;
+      display: block;
       min-width: 1rem;
       padding-top: 1rem;
       color: #FFFFFF; }
       .image-description dl.rootdata dt::after {
-        content: "";
         display: inline-block;
-        padding-right: 0.8rem; }
+        padding-right: 0.8rem;
+        content: ""; }
       .image-description dl.rootdata dt button.btn.is-right {
         top: 1rem; }
     .image-description dl.rootdata dd {
-      border-bottom: solid 1px #666666;
       padding-bottom: 1rem;
+      border-bottom: solid 1px #666666;
       margin-left: 0; }
     .image-description dl.rootdata dt[data-target] {
       margin-bottom: 1rem; }
@@ -563,6 +595,29 @@ button.btn {
       overflow: hidden;
       max-height: 1000px;
       padding-bottom: 0; }
+
+/* Form
+########################################################################## */
+form .field-with-label {
+  display: grid;
+  margin-bottom: 0.8rem; }
+  form .field-with-label input,
+  form .field-with-label textarea {
+    width: 1fr;
+    height: 2.52rem;
+    background-color: #666666;
+    color: #FFFFFF; }
+  form .field-with-label input[type="date"] {
+    width: 15%; }
+  form .field-with-label label {
+    padding-top: 1rem;
+    padding-bottom: 1.28rem; }
+  form .field-with-label textarea {
+    height: 10rem; }
+
+form .footer-field input {
+  padding: 0.8rem;
+  background-color: #FFCC00; }
 
 .header {
   position: relative;
