@@ -84,7 +84,18 @@
 
     p {
       font-size: $xxl;
-      max-width: 70%;
+    }
+
+    @media only screen and (min-width: $vp-xlarge) {
+      p{
+        font-size: $l;
+      }
+    }
+
+    @media only screen and (min-width: $vp-large) {
+      p{
+        font-size: $xl;
+      }
     }
   }
 

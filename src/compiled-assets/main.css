@@ -436,6 +436,16 @@ h3 {
   grid-column-gap: 1.28rem;
   grid-row-gap: 1.28rem; }
 
+@media only screen and (min-width: 1024px) {
+  .grid-container {
+    grid-template-columns: 1fr 1fr; }
+  .grid-container-zweispalter {
+    grid-template-columns: 1fr 1fr; } }
+
+@media only screen and (min-width: 1400px) {
+  .grid-container {
+    grid-template-columns: 1fr 1fr 1fr 1fr; } }
+
 button.btn {
   padding: 0;
   background-color: transparent;
@@ -511,8 +521,13 @@ button.btn {
     .card-image-with-caption-v2 > figcaption > .additional-info {
       display: none; }
     .card-image-with-caption-v2 > figcaption p {
-      font-size: 2.52rem;
-      max-width: 70%; }
+      font-size: 2.52rem; }
+    @media only screen and (min-width: 1400px) {
+      .card-image-with-caption-v2 > figcaption p {
+        font-size: 1.6rem; } }
+    @media only screen and (min-width: 1024px) {
+      .card-image-with-caption-v2 > figcaption p {
+        font-size: 2rem; } }
   .is-list-view .card-image-with-caption-v2 {
     display: grid;
     grid-template-columns: 300px 1fr; }
